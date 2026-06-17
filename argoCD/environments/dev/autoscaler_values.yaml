@@ -1,0 +1,32 @@
+serviceAccount:
+  name: cluster-autoscaler
+  annotations: {}
+
+autoDiscovery:
+  clusterName: staging-demo-eks
+
+awsRegion: us-east-1
+
+rbac:
+  create: true
+
+extraArgs:
+  balance-similar-node-groups: "true"
+  skip-nodes-with-local-storage: "false"
+  expander: "least-waste"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 600Mi
+  requests:
+    cpu: 100m
+    memory: 300Mi
+
+replicaCount: 1
+
+podDisruptionBudget:
+  maxUnavailable: 1
+
+image:
+  tag: v1.36.0
