@@ -7,7 +7,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   }
 
   role_arn = aws_iam_role.cluster.arn
-  version  = "${local.eks_version}"
+  version  = local.eks_version
 
   vpc_config {
     endpoint_private_access = false # Resources inside VPC will reach the API server through the public endpoint
