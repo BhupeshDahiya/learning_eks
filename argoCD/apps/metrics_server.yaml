@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-server             
+  namespace: argocd # App object data so argocd knows it deployed the app
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io # so when the metrics server is deleted all child processes get deleted as well
+spec:
+  project: default
+  sources:
+    # source 1 for helm chart
+    - repoURL: 'https://kubernetes-sigs.github.io/metrics-server/'
+      chart: metrics-server
+      targetRevision: 3.13.0 
+      helm:
+        valueFiles:
+          - $values/environments/dev/metrics_server_values.yaml
+
+    # Source 2 for the values file
+    - repoURL: 'https://github.com/BhupeshDahiya/learning_eks' # Change to your Git URL
+      targetRevision: HEAD # Or pin to a specific branch like 'main' or a tag or a commit
+      ref: values  
+    
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kube-system # metrics server is usually deployed here
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

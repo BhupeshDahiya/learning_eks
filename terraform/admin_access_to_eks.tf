@@ -105,13 +105,27 @@ resource "aws_iam_policy" "eks_admin_policy" {
     Statement = [
       {
         Action = [
-          "iam:PassRole",
+          "iam:PassRole","iam:GetRole","iam:ListRoles",
         ]
         Effect   = "Allow"
         Resource = [
           aws_iam_role.cluster.arn,
           aws_iam_role.node.arn,
         ]
+      },
+      { 
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+      {
+        Action = [
+          "autoscaling:Describe*"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
       },
       {
         Action = [

@@ -1,0 +1,33 @@
+# Custom configuration for metrics-server deployment
+replicaCount: 2
+
+args:
+  - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+
+# Secure TLS configuration using the cluster's default CA injection
+# This mounts the host's CA certificates into the metrics-server pod
+hostNetwork:
+  enabled: false
+
+# Crucial for scheduling replicas across different physical nodes
+topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfiable: DoNotSchedule
+    labelSelector:
+      matchLabels:
+        app.kubernetes.io/name: metrics-server
+
+# Production resource guarantees to prevent OOM (Out Of Memory) kills
+resources:
+  limits:
+    cpu: 300m
+    memory: 450Mi
+  requests:
+    cpu: 100m
+    memory: 150Mi
+
+# Prevents downtime during node drains or rolling upgrades
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
