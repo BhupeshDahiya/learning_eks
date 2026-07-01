@@ -1,6 +1,7 @@
 serviceAccount:
   name: cluster-autoscaler
   annotations: {}
+  # Since we're using EKS Pod Identity (not IRSA), the Helm chart needs to be told not to create its own service account annotations (IRSA-style), and the service account name must match exactly what you set in aws_eks_pod_identity_association(cluster-autoscaler).
 
 autoDiscovery:
   clusterName: staging-demo-eks
