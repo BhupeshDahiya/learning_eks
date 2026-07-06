@@ -1,0 +1,26 @@
+---
+controller:
+  ingressClassResource:
+    name: nginx
+
+  service:
+    type: NodePort  # ALB will target nginx pods directly via IP, no LoadBalancer needed
+
+  config:
+    use-forwarded-headers: "true"       # trust X-Forwarded-* headers from ALB
+    compute-full-forwarded-for: "true"
+    use-proxy-protocol: "false"
+
+  replicaCount: 2
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
