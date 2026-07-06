@@ -1,0 +1,72 @@
+# Number of replicas
+replicaCount: 1
+
+# Install CRDs
+crds:
+  enabled: true
+
+# Global settings
+global:
+  leaderElection:
+    namespace: kube-system
+
+# Controller configuration
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+# Webhook configuration
+webhook:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 150m
+      memory: 128Mi
+
+# CA Injector configuration
+cainjector:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 150m
+      memory: 128Mi
+
+# Startup API Check
+startupapicheck:
+  enabled: true
+
+# Prometheus metrics
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: false
+
+# Security Context
+securityContext:
+  runAsNonRoot: true
+
+# Pod Security Context
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
+
+# Node scheduling (optional)
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Extra arguments
+extraArgs:
+  - --enable-certificate-owner-ref=true
