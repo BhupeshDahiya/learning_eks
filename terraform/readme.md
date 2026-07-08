@@ -16,4 +16,5 @@ aws eks update-kubeconfig --name staging-demo-eks --region us-east-1
 ```bash
 kubectl auth can-i "*" "*" # r/w
 kubectl get nodes # admin access
+kubectl get pods -n kube-system # All pods running or not
 ```
