@@ -8,8 +8,8 @@ resource "aws_iam_role" "cluster_autoscaler" {
     Statement = [
       {
         Action = [
-            "sts:AssumeRole",
-            "sts:TagSession"
+          "sts:AssumeRole",
+          "sts:TagSession"
         ]
         Effect = "Allow"
         Sid    = ""
