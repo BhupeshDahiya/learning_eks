@@ -7,7 +7,7 @@ installCRDs: true
 # Global settings
 global:
   leaderElection:
-    namespace: kube-system
+    namespace: cert-manager
 
 # Controller configuration
 resources:

@@ -5,6 +5,7 @@ metadata:
   name: http-01-production
   annotations:
     argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   acme:
     email: bhupesh40rajput@gmail.com
