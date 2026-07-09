@@ -4,7 +4,7 @@ kind: ClusterIssuer
 metadata:
   name: http-01-production
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   acme:
     email: bhupesh40rajput@gmail.com

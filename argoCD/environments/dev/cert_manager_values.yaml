@@ -2,8 +2,7 @@
 replicaCount: 1
 
 # Install CRDs
-crds:
-  enabled: true
+installCRDs: true
 
 # Global settings
 global:
