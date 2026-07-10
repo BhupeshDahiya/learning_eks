@@ -14,7 +14,7 @@ spec:
       targetRevision: 9.57.0 
       helm:
         valueFiles:
-          - $values/environments/dev/autoscaler_values.yaml
+          - $values/argoCD/environments/dev/autoscaler_values.yaml
 
     # Source 2 for the values file
     - repoURL: 'https://github.com/BhupeshDahiya/learning_eks' # Change to your Git URL

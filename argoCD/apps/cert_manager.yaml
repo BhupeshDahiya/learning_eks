@@ -16,7 +16,7 @@ spec:
       targetRevision: 1.20.3 
       helm:
         valueFiles:
-          - $values/environments/dev/cert_manager_values.yaml
+          - $values/argoCD/environments/dev/cert_manager_values.yaml
 
     # Source 2 for the values file
     - repoURL: 'https://github.com/BhupeshDahiya/learning_eks' # Change to your Git URL
