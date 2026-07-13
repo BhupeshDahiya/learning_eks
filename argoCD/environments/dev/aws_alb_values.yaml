@@ -1,26 +1,19 @@
-fullnameOverride: aws-load-balancer-controller
-
-clusterName: staging-demo-eks
-
-replicaCount: 2
-
-serviceAccount:
-  name: aws-load-balancer-controller
-  annotations: {}
-
-ingressClassConfig:
-  default: false
-
-logLevel: info
-
-resources:
-  requests:
-    cpu: 100m
-    memory: 128Mi
-  limits:
-    cpu: 500m
-    memory: 512Mi
-
-podDisruptionBudget:
-  maxUnavailable: 1
- 
+"clusterName": "staging-demo-eks"
+"fullnameOverride": "aws-load-balancer-controller"
+"ingressClassConfig":
+  "default": false
+"logLevel": "info"
+"podDisruptionBudget":
+  "maxUnavailable": 1
+"replicaCount": 2
+"resources":
+  "limits":
+    "cpu": "500m"
+    "memory": "512Mi"
+  "requests":
+    "cpu": "100m"
+    "memory": "128Mi"
+"serviceAccount":
+  "annotations": {}
+  "name": "aws-load-balancer-controller"
+"vpcId": "vpc-0648d1caf6c1b4021"
