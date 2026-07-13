@@ -57,5 +57,7 @@ echo ""
 echo "Port-forward running in background (PID: ${PF_PID})"
 echo "To stop it:"
 echo "kill ${PF_PID}"
+echo "OR"
+echo "Press Ctrl+C"
 
 wait ${PF_PID}
