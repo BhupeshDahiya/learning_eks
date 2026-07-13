@@ -1,3 +1,5 @@
+fullnameOverride: aws-load-balancer-controller
+
 clusterName: staging-demo-eks
 
 replicaCount: 2
