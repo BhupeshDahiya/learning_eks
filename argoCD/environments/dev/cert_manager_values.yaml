@@ -1,8 +1,9 @@
 # Number of replicas
-replicaCount: 1
+replicaCount: 2
 
 # Install CRDs
-installCRDs: true
+crds:
+  enabled: true
 
 # Global settings
 global:
@@ -15,7 +16,7 @@ resources:
     cpu: 100m
     memory: 128Mi
   limits:
-    cpu: 250m
+    cpu: 300m
     memory: 256Mi
 
 # Webhook configuration
@@ -23,11 +24,11 @@ webhook:
   replicaCount: 1
   resources:
     requests:
-      cpu: 50m
-      memory: 64Mi
-    limits:
-      cpu: 150m
+      cpu: 100m
       memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 256Mi
 
 # CA Injector configuration
 cainjector:
@@ -37,7 +38,7 @@ cainjector:
       cpu: 50m
       memory: 64Mi
     limits:
-      cpu: 150m
+      cpu: 100m
       memory: 128Mi
 
 # Startup API Check

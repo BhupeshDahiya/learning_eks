@@ -13,7 +13,7 @@ spec:
     # source 1 for helm chart
     - repoURL: 'https://charts.jetstack.io'
       chart: cert-manager
-      targetRevision: 1.20.3 
+      targetRevision: 1.21.0 
       helm:
         valueFiles:
           - $values/argoCD/environments/dev/cert_manager_values.yaml
