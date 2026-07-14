@@ -13,7 +13,7 @@ spec:
     # source 1 for helm chart
     - repoURL: 'https://kubernetes.github.io/ingress-nginx'
       chart: ingress-nginx
-      targetRevision: 4.15.11 
+      targetRevision: 4.15.1
       helm:
         valueFiles:
           - $values/argoCD/environments/dev/nginx_ingress_values.yaml
