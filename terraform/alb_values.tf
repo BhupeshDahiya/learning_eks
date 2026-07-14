@@ -1,3 +1,4 @@
+# Using this file to generate the aws alb values for the argoCD application. This is to avoid hardcoding the values in the argoCD application and to make it dynamic based on the terraform variables.
 resource "local_file" "aws_alb_values" {
   filename = "${path.module}/../argoCD/environments/dev/aws_alb_values.yaml"
 
