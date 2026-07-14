@@ -17,6 +17,10 @@ spec:
       helm:
         valueFiles:
           - $values/argoCD/environments/dev/cert_manager_values.yaml
+        # Hard-coded parameter override to force ArgoCD's generator engine
+        parameters:
+          - name: crds.enabled
+            value: "true"
 
     # Source 2 for the values file
     - repoURL: 'https://github.com/BhupeshDahiya/learning_eks' # Change to your Git URL
