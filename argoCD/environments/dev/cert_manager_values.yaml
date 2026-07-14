@@ -51,14 +51,9 @@ prometheus:
   servicemonitor:
     enabled: false
 
-# Security Context
-securityContext:
-  runAsNonRoot: true
-
 # Pod Security Context
-podSecurityContext:
-  seccompProfile:
-    type: RuntimeDefault
+containerSecurityContext:
+  runAsNonRoot: true
 
 # Node scheduling (optional)
 nodeSelector: {}
