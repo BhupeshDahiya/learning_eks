@@ -22,3 +22,13 @@ kubectl auth can-i "*" "*" # r/w
 kubectl get nodes # admin access
 kubectl get pods -n kube-system # All pods running or not
 ```
+
+## Destroy Order
+
+1. kubectl delete ingress --all -A
+```bash
+kubectl delete ingress alb-nginx-ingress -n kube-system
+kubectl delete ingress demo-java-app -n default
+```
+2. Wait for ALBs to be deleted in AWS console
+3. terraform destroy
