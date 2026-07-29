@@ -28,7 +28,8 @@ resource "aws_subnet" "pub_1" {
 
   tags = {
     Name                     = "${local.env}-pub-${local.zone1}"
-    "kubernetes.io/role/elb" = "1" # Tag to deploy load balancers to a pvt subnet
+    "kubernetes.io/role/elb" = "1"
+    "kubernetes.io/cluster/${local.env}-${local.eks_name}" = "shared"
   }
 }
 
@@ -40,6 +41,7 @@ resource "aws_subnet" "pub_2" {
 
   tags = {
     Name                     = "${local.env}-pub-${local.zone2}"
-    "kubernetes.io/role/elb" = "1" # Tag to deploy load balancers to a pvt subnet
+    "kubernetes.io/role/elb" = "1"
+    "kubernetes.io/cluster/${local.env}-${local.eks_name}" = "shared"
   }
 }
