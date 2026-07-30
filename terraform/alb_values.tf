@@ -46,6 +46,7 @@ resource "null_resource" "push_alb_values" {
 
   provisioner "local-exec" {
     working_dir = "${path.module}/.."
-    command     = "git add argoCD/environments/dev/aws_alb_values.yaml && git commit -m 'chore: update alb values with vpc ${aws_vpc.main.id}' && git push"
+    interpreter = ["PowerShell", "-Command"]
+    command     = "git add argoCD/environments/dev/aws_alb_values.yaml; git commit -m 'chore:update-alb-values'; git push"
   }
 }
