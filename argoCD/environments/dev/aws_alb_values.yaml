@@ -16,4 +16,4 @@
 "serviceAccount":
   "annotations": {}
   "name": "aws-load-balancer-controller"
-"vpcId": "vpc-08111408214604e60"
+"vpcId": "vpc-0f390edef8f304b57"
